@@ -1,0 +1,59 @@
+name: Publish package
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Upgrade npm for trusted publishing
+        run: npm install --global npm@11.5.1
+
+      - name: Run tests
+        run: npm test
+
+      - name: Bump patch version when needed
+        id: version
+        shell: bash
+        run: |
+          set -euo pipefail
+          package_name=$(node -p "require('./package.json').name")
+          package_version=$(node -p "require('./package.json').version")
+
+          if npm view "${package_name}@${package_version}" version >/dev/null 2>&1; then
+            npm version patch --no-git-tag-version
+            package_version=$(node -p "require('./package.json').version")
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+          echo "version=${package_version}" >> "$GITHUB_OUTPUT"
+
+      - name: Publish package
+        run: npm publish --access public
+
+      - name: Commit release version
+        if: steps.version.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json
+          git commit -m "chore: release v${{ steps.version.outputs.version }}"
+          git push

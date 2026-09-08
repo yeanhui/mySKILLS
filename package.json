@@ -1,0 +1,44 @@
+{
+  "name": "@yeanhui/myskills",
+  "version": "0.2.1",
+  "description": "Practical AI skills for repository analysis, research, and execution planning",
+  "type": "module",
+  "bin": {
+    "myskills": "bin/myskills.js"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "start": "node ./bin/myskills.js",
+    "registry:start": "verdaccio --config verdaccio.config.yaml",
+    "publish:local": "npm publish --registry http://localhost:4873 --access public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yeanhui/mySKILLs.git"
+  },
+  "homepage": "https://github.com/yeanhui/mySKILLs",
+  "bugs": {
+    "url": "https://github.com/yeanhui/mySKILLs/issues"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "skills",
+    "cli",
+    "automation"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "verdaccio": "^6.0.5"
+  }
+}

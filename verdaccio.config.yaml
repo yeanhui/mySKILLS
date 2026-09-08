@@ -1,0 +1,28 @@
+# Local private npm registry for testing @yeanhui/myskills before publishing publicly.
+# Start with: npm run registry:start
+# Storage and htpasswd are written next to this file and are safe to delete to reset the registry.
+storage: ./.verdaccio/storage
+
+auth:
+  htpasswd:
+    file: ./.verdaccio/htpasswd
+    max_users: 1000
+
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+
+packages:
+  "@yeanhui/*":
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+
+  "**":
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
+
+log: { type: stdout, format: pretty, level: http }
+
+listen: 0.0.0.0:4873
