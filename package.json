@@ -1,6 +1,6 @@
 {
   "name": "@yeanhui/myskills",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Practical AI skills for repository analysis, research, and execution planning",
   "type": "module",
   "bin": {
