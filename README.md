@@ -7,6 +7,7 @@ Portable AI skills for VS Code Copilot Agent mode:
 - **repo-explorer** - creates a repository architecture and onboarding guide.
 - **research-brief** - creates a concise research brief with citations.
 - **idea-to-execution** - turns an idea into an implementation plan.
+- **code-review** - reviews a code change and produces a structured Markdown review.
 
 Repository: <https://github.com/yeanhui/mySKILLS>
 
@@ -26,7 +27,8 @@ This creates:
 .github/skills/
 ├── repo-explorer/SKILL.md
 ├── research-brief/SKILL.md
-└── idea-to-execution/SKILL.md
+├── idea-to-execution/SKILL.md
+└── code-review/SKILL.md
 ```
 
 Then open Copilot Chat in Agent mode and ask:
@@ -40,6 +42,7 @@ The other skills can be used with requests such as:
 ```text
 Use the research-brief skill to compare PostgreSQL and MongoDB, with citations.
 Use the idea-to-execution skill to plan dark mode for this web application.
+Use the code-review skill to review my current changes before I open a pull request.
 ```
 
 The agent creates the requested Markdown artifacts in your project. Use `--force` to replace existing skill files:

@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = path.join(packageRoot, "skills");
 
-const skillNames = ["repo-explorer", "research-brief", "idea-to-execution"];
+const skillNames = ["repo-explorer", "research-brief", "idea-to-execution", "code-review"];
 
 export async function installSkills({ force = false } = {}) {
   const destinationRoot = path.resolve(".github", "skills");

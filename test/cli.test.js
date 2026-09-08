@@ -17,6 +17,7 @@ test("prints help without requiring an API key", async () => {
   assert.match(output.join("\n"), /repo-explorer/);
   assert.match(output.join("\n"), /research-brief/);
   assert.match(output.join("\n"), /idea-to-execution/);
+  assert.match(output.join("\n"), /code-review/);
   assert.match(output.join("\n"), /init/);
 });
 
@@ -35,6 +36,11 @@ test("installs skill files without requiring an API key", async () => {
       "utf8",
     );
     assert.match(skill, /Repository Explorer/);
+    const codeReviewSkill = await readFile(
+      path.join(directory, ".github", "skills", "code-review", "SKILL.md"),
+      "utf8",
+    );
+    assert.match(codeReviewSkill, /Code Review/);
   } finally {
     process.chdir(originalCwd);
     await rm(directory, { recursive: true, force: true });
