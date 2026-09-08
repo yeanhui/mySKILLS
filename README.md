@@ -6,7 +6,7 @@ Portable AI skills for VS Code Copilot Agent mode:
 - **research-brief** - creates a concise research brief with citations.
 - **idea-to-execution** - turns an idea into an implementation plan.
 
-Repository: <https://github.com/yeanhui/mySKILLs>
+Repository: <https://github.com/yeanhui/mySKILLS>
 
 ## Use in a project
 
@@ -98,7 +98,7 @@ workflow below) against the public registry - no code changes are needed, only t
 
 Publishing runs automatically after a pull request is merged into `main`.
 
-1. In npm package settings, configure a **Trusted Publisher** for GitHub Actions with owner `yeanhui`, repository `mySKILLs`, workflow filename `publish.yml`, and no environment. The filename is case-sensitive and must be the filename only, not the `.github/workflows/` path.
+1. In npm package settings, configure a **Trusted Publisher** for GitHub Actions with owner `yeanhui`, repository `mySKILLS`, workflow filename `publish.yml`, and no environment. The filename is case-sensitive and must be the filename only, not the `.github/workflows/` path.
 2. Merge a pull request into `main`.
 3. GitHub Actions runs `npm test`.
 4. If the version already exists on npm, the workflow increments the patch version.

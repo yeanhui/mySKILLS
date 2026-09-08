@@ -24,11 +24,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yeanhui/mySKILLs.git"
+    "url": "https://github.com/yeanhui/mySKILLS.git"
   },
-  "homepage": "https://github.com/yeanhui/mySKILLs",
+  "homepage": "https://github.com/yeanhui/mySKILLS",
   "bugs": {
-    "url": "https://github.com/yeanhui/mySKILLs/issues"
+    "url": "https://github.com/yeanhui/mySKILLS/issues"
   },
   "keywords": [
     "ai",
