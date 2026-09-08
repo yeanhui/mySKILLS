@@ -1,5 +1,7 @@
 # @yeanhui/myskills
 
+[![npm version](https://img.shields.io/npm/v/@yeanhui/myskills.svg)](https://www.npmjs.com/package/@yeanhui/myskills)
+
 Portable AI skills for VS Code Copilot Agent mode:
 
 - **repo-explorer** - creates a repository architecture and onboarding guide.
