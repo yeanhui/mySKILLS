@@ -59,46 +59,6 @@ npm test
 npm pack --dry-run
 ```
 
-## Test privately with a local npm registry (Verdaccio)
-
-Before publishing to the public npm registry, verify the package end-to-end against a local
-registry running in Node.js:
-
-1. Start the local registry (keep this terminal running):
-
-   ```bash
-   npm run registry:start
-   ```
-
-   Verdaccio listens on <http://localhost:4873> and stores packages under `.verdaccio/` (gitignored).
-
-2. In a second terminal, create a throwaway npm user on the local registry (any credentials, stored only in `.verdaccio/htpasswd`):
-
-   ```bash
-   npm adduser --registry http://localhost:4873
-   ```
-
-3. Publish the current code to the local registry only:
-
-   ```bash
-   npm run publish:local
-   ```
-
-4. Consume it from a scratch directory exactly like a real user would, pointing npx at the local registry:
-
-   ```bash
-   cd (mktemp -d)   # or any empty test folder
-   npx --registry http://localhost:4873 @yeanhui/myskills@latest init
-   ```
-
-   Confirm `.github/skills/*/SKILL.md` is created as expected.
-
-5. Repeat step 3 (bump the version first with `npm version patch`) to test updates, then tear down the
-   registry and delete `.verdaccio/` when done.
-
-Once this passes, you can publish for real with `npm publish --access public` (or the automated
-workflow below) against the public registry - no code changes are needed, only the `--registry` flag differs.
-
 ## Automated npm publishing
 
 Publishing runs automatically after a pull request is merged into `main`.

@@ -15,9 +15,7 @@
   ],
   "scripts": {
     "test": "node --test",
-    "start": "node ./bin/myskills.js",
-    "registry:start": "verdaccio --config verdaccio.config.yaml",
-    "publish:local": "npm publish --registry http://localhost:4873 --access public"
+    "start": "node ./bin/myskills.js"
   },
   "engines": {
     "node": ">=18"
@@ -37,8 +35,5 @@
     "cli",
     "automation"
   ],
-  "license": "MIT",
-  "devDependencies": {
-    "verdaccio": "^6.0.5"
-  }
+  "license": "MIT"
 }
